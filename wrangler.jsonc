@@ -6,25 +6,31 @@
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "binding": "ASSETS",
-    "directory": "./dist"
+    "directory": "./dist",
+    "html_handling": "drop-trailing-slash"
   },
+  "workers_dev": true,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "stitchandcrochet.com", "custom_domain": true }
+  ],
   "observability": { "enabled": true },
 
-  // 1) npx wrangler d1 create crochet-db   -> paste the database_id below
+  // Created with: npx wrangler d1 create stitchandcrochet-db
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "crochet-db",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "database_name": "stitchandcrochet-db",
+      "database_id": "8b37996e-ea3b-43bd-ad6b-d7910b45d75b",
       "migrations_dir": "migrations"
     }
   ],
 
-  // 2) npx wrangler kv namespace create CACHE   -> paste the id below
+  // Created with: npx wrangler kv namespace create stitchandcrochet-cache
   "kv_namespaces": [
     {
       "binding": "CACHE",
-      "id": "REPLACE_WITH_KV_NAMESPACE_ID"
+      "id": "a629f5406e2943049d2dd64f8f898865"
     }
   ]
 
