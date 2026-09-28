@@ -1,0 +1,151 @@
+---
+import TextPage from '../components/TextPage.astro';
+import { SITE } from '../lib/site';
+export const prerender = true;
+
+const updated = 'September 28, 2026';
+---
+
+<TextPage
+  title="Terms of *Service*"
+  eyebrow="Legal"
+  description={`The rules for using ${SITE.name} (${SITE.domain}) and our free crochet patterns.`}
+>
+  <p><strong>Last updated:</strong> {updated}</p>
+
+  <p>
+    These Terms of Service ("Terms") explain the rules for using {SITE.name} ("we", "us", "our"), available at
+    <a href="/">{SITE.domain}</a> (the "Website"). By using the Website, you agree to these Terms. If you do not
+    agree, please do not use the Website.
+  </p>
+
+  <h2 id="summary">The short version</h2>
+  <ul>
+    <li>Our patterns are <strong>free for your personal use</strong>.</li>
+    <li>You <strong>may sell the items you make</strong> from our patterns (small, handmade quantities).</li>
+    <li>You <strong>may not copy, share, translate or sell the patterns, text or photos</strong> themselves.</li>
+    <li>Please share a <strong>link</strong> to the pattern instead of copying it.</li>
+    <li>We work hard to make our patterns accurate, but we can't guarantee they are free of mistakes.</li>
+  </ul>
+
+  <h2 id="use">1. Using the Website</h2>
+  <p>You may use the Website for personal, non-commercial purposes. You agree not to:</p>
+  <ul>
+    <li>break any law or the rights of others while using the Website;</li>
+    <li>try to hack, disrupt, overload or gain unauthorized access to the Website or its systems;</li>
+    <li>use bots, scrapers or other automated tools to copy content from the Website;</li>
+    <li>send spam, harmful code or abusive messages through our forms.</li>
+  </ul>
+  <p>
+    You must be at least 13 years old (or 16 in the EU) to sign up for the newsletter or contact us. Younger visitors
+    should use the Website with a parent or guardian.
+  </p>
+
+  <h2 id="patterns">2. Our patterns and content</h2>
+  <p>
+    All content on the Website – including patterns, written instructions, photos, images, graphics, logos and the
+    design of the site – is owned by {SITE.name} and is protected by copyright and other intellectual property laws.
+  </p>
+
+  <h3>What you can do</h3>
+  <ul>
+    <li>Read, download and print patterns for your own personal use.</li>
+    <li>Make as many items as you like from our patterns for yourself, as gifts or for charity.</li>
+    <li>
+      <strong>Sell finished items</strong> you have made by hand from our patterns, in small quantities (for example
+      at craft fairs or in a small online shop). We kindly ask that you credit {SITE.name} as the pattern designer and
+      include a link to <a href="/">{SITE.domain}</a>.
+    </li>
+    <li>Share photos of your finished makes on social media – we'd love to see them! Please link to the original pattern.</li>
+  </ul>
+
+  <h3>What you can't do</h3>
+  <ul>
+    <li>Copy, republish, translate or share our written patterns, in full or in part, on other websites, social media, groups, videos or printed materials.</li>
+    <li>Sell, give away or distribute our patterns, including as PDFs, printouts or kits.</li>
+    <li>Use our photos or images to sell your own items or promote your own business.</li>
+    <li>Claim our patterns or designs as your own.</li>
+    <li>Mass-produce items from our patterns in a factory or commercial setting.</li>
+    <li>Use our content to train artificial intelligence or machine learning models.</li>
+  </ul>
+  <p>If you'd like to use our content in a way not allowed here, please <a href="/contact">ask us first</a>.</p>
+
+  <h2 id="accuracy">3. Pattern accuracy and results</h2>
+  <p>
+    We test our patterns carefully, but mistakes can happen. Your finished item may also look different from ours
+    because of your yarn, hook, tension or skill level. Patterns are provided "as is", and we are not responsible for
+    the cost of yarn or materials, or for results that don't match your expectations. If you find an error, please
+    <a href="/contact">let us know</a> so we can fix it.
+  </p>
+
+  <h2 id="safety">4. Safety</h2>
+  <p>You are responsible for making and using your crochet items safely. In particular:</p>
+  <ul>
+    <li>
+      <strong>Baby and children's items:</strong> avoid small parts such as buttons, beads or loose ribbons that could
+      come off and become a choking hazard. Always supervise babies and young children with handmade items.
+    </li>
+    <li><strong>Home items:</strong> keep crochet items away from open flames and heat sources.</li>
+    <li>
+      <strong>Items you sell:</strong> if you sell items made from our patterns, you are responsible for following
+      any product safety and labeling laws in your country.
+    </li>
+  </ul>
+
+  <h2 id="submissions">5. Messages you send us</h2>
+  <p>
+    When you contact us or share feedback, you confirm that what you send is your own and doesn't break any law. If
+    you send us ideas or suggestions, we may use them to improve the Website without owing you anything. We handle
+    your personal information as described in our <a href="/privacy">Privacy Policy</a>.
+  </p>
+
+  <h2 id="links">6. Links to other websites</h2>
+  <p>
+    The Website may contain links to other websites, such as yarn shops or tutorials. We don't control those
+    websites and are not responsible for their content, products or privacy practices. Some links may be affiliate
+    links, which means we may earn a small commission at no extra cost to you. We will always make this clear.
+  </p>
+
+  <h2 id="disclaimer">7. Disclaimer of warranties</h2>
+  <p>
+    The Website and all content are provided "as is" and "as available", without warranties of any kind, whether
+    express or implied. We do not guarantee that the Website will always be available, secure or free of errors.
+  </p>
+
+  <h2 id="liability">8. Limitation of liability</h2>
+  <p>
+    To the fullest extent allowed by law, {SITE.name} is not liable for any indirect, incidental or consequential
+    damages, or for any loss of materials, time or money, arising from your use of the Website or our patterns. Some
+    countries do not allow certain limitations of liability, so some of these limitations may not apply to you.
+  </p>
+
+  <h2 id="indemnity">9. Your responsibility</h2>
+  <p>
+    You agree to be responsible for, and to protect {SITE.name} from, any claims that arise from your misuse of the
+    Website, your breach of these Terms, or items you make and sell using our patterns.
+  </p>
+
+  <h2 id="termination">10. Suspension of access</h2>
+  <p>
+    We may limit or block access to the Website for anyone who breaks these Terms or misuses the Website, without
+    notice.
+  </p>
+
+  <h2 id="changes">11. Changes to these Terms</h2>
+  <p>
+    We may update these Terms from time to time. When we do, we will change the "Last updated" date at the top of this
+    page. By continuing to use the Website after changes are posted, you accept the updated Terms.
+  </p>
+
+  <h2 id="law">12. Governing law</h2>
+  <p>
+    These Terms are governed by the laws of the country in which {SITE.name} is operated, without regard to its
+    conflict of law rules. If any part of these Terms is found to be unenforceable, the rest will remain in effect.
+  </p>
+
+  <h2 id="contact">13. Contact us</h2>
+  <p>
+    If you have any questions about these Terms, please reach out through our <a href="/contact">contact page</a>.
+  </p>
+  <p>See also our <a href="/privacy">Privacy Policy</a> and <a href="/disclaimer">Disclaimer</a>.</p>
+</TextPage>
