@@ -12,7 +12,8 @@
   "workers_dev": true,
   "preview_urls": false,
   "routes": [
-    { "pattern": "stitchandcrochet.com", "custom_domain": true }
+    { "pattern": "stitchandcrochet.com", "custom_domain": true },
+    { "pattern": "www.stitchandcrochet.com", "custom_domain": true }
   ],
   "observability": { "enabled": true },
 
