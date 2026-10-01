@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import PatternCard from '../../components/PatternCard.astro';
 import Pagination from '../../components/Pagination.astro';
 import { CATEGORIES } from '../../lib/site';
-import { listPatterns } from '../../lib/db';
+import { listPatterns } from '../../lib/patterns';
 
 const { env } = Astro.locals.runtime;
 const q = (Astro.url.searchParams.get('q') ?? '').trim().slice(0, 80);

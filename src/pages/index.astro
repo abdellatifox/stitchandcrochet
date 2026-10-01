@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PatternCard from '../components/PatternCard.astro';
 import { CATEGORIES, SITE } from '../lib/site';
-import { listPatterns, getCategoryCounts } from '../lib/db';
+import { listPatterns, getCategoryCounts } from '../lib/patterns';
 
 const { env } = Astro.locals.runtime;
 const [feed, counts] = await Promise.all([listPatterns(env, { perPage: 9 }), getCategoryCounts(env)]);

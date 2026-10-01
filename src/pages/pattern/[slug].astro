@@ -3,7 +3,8 @@ import { renderPattern } from '../../lib/content';
 import Base from '../../layouts/Base.astro';
 import PatternCard from '../../components/PatternCard.astro';
 import { getCategory, SITE } from '../../lib/site';
-import { getPattern, getRelated, formatDate } from '../../lib/db';
+import { formatDate } from '../../lib/db';
+import { getPattern, getRelated } from '../../lib/patterns';
 
 const { env } = Astro.locals.runtime;
 const pattern = await getPattern(env, Astro.params.slug ?? '');
@@ -18,7 +19,14 @@ const facts = [
   ['Yarn weight', pattern.yarn_weight],
   ['Hook size', pattern.hook_size],
   ['Time', pattern.time_needed],
+  ['Gauge', pattern.gauge],
+  ['Yardage', pattern.yardage],
+  ['Sizes', pattern.sizes?.join(', ')],
 ].filter(([, v]) => v);
+const stitches = pattern.stitches ?? [];
+const colors = pattern.colors ?? [];
+const metaTitle = pattern.seo_title || pattern.title;
+const metaDescription = pattern.seo_description || pattern.excerpt;
 
 const base = Astro.site ?? Astro.url;
 const abs = (path: string) => new URL(path, base).href;
@@ -32,7 +40,7 @@ const jsonLd = {
       '@type': 'Article',
       '@id': `${url}#article`,
       headline: pattern.title,
-      description: pattern.excerpt,
+      description: metaDescription,
       image: abs(pattern.image || '/og.svg'),
       url,
       mainEntityOfPage: url,
@@ -69,7 +77,7 @@ const jsonLd = {
 Astro.response.headers.set('Cache-Control', 'public, max-age=60, s-maxage=600');
 ---
 
-<Base title={pattern.title} description={pattern.excerpt} image={pattern.image} jsonLd={jsonLd} ogType="article">
+<Base title={metaTitle} description={metaDescription} image={pattern.image} jsonLd={jsonLd} ogType="article">
   <article class="wrap section">
     <nav class="crumbs no-print" aria-label="Breadcrumb">
       <a href="/">Home</a> <span aria-hidden="true">/</span>
@@ -105,6 +113,22 @@ Astro.response.headers.set('Cache-Control', 'public, max-age=60, s-maxage=600');
             <aside class="box materials" aria-labelledby="materials-title">
               <h2 id="materials-title">You'll need</h2>
               <ul>{materials.map((m) => <li>{m}</li>)}</ul>
+            </aside>
+          )
+        }
+        {
+          stitches.length > 0 && (
+            <aside class="box" aria-labelledby="stitches-title">
+              <h2 id="stitches-title">Stitches used</h2>
+              <ul>{stitches.map((s) => <li>{s}</li>)}</ul>
+            </aside>
+          )
+        }
+        {
+          colors.length > 0 && (
+            <aside class="box" aria-labelledby="colors-title">
+              <h2 id="colors-title">Colors</h2>
+              <ul>{colors.map((c) => <li>{c}</li>)}</ul>
             </aside>
           )
         }

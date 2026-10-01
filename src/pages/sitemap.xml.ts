@@ -1,11 +1,10 @@
 import type { APIRoute } from 'astro';
 import { CATEGORIES } from '../lib/site';
+import { listForSitemap } from '../lib/patterns';
 
 export const GET: APIRoute = async ({ locals, site, url }) => {
   const base = (site ?? url).origin;
-  const { results } = await locals.runtime.env.DB.prepare(
-    'SELECT slug, updated_at FROM patterns WHERE published = 1 ORDER BY published_at DESC',
-  ).all<{ slug: string; updated_at: string }>();
+  const results = await listForSitemap(locals.runtime.env);
 
   const urls = [
     { loc: '/' },

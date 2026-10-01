@@ -1,0 +1,5 @@
+---
+// ContentOps saves pattern links as /patterns/<slug>; the canonical page lives at /pattern/<slug>.
+const slug = encodeURIComponent(Astro.params.slug ?? '');
+return Astro.redirect(`/pattern/${slug}`, 301);
+---
